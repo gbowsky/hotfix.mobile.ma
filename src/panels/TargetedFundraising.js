@@ -4,17 +4,16 @@ import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader
 
 import {
     Button,
-    PanelHeaderBack,
-    Placeholder,
-    Banner,
-    FormLayoutGroup,
-    Input,
     FormLayout,
-    Textarea, Select, FormStatus
+    FormLayoutGroup,
+    FormStatus,
+    Input,
+    PanelHeaderBack,
+    Select,
+    Textarea
 } from "@vkontakte/vkui";
 import {Icon28PictureOutline} from "@vkontakte/icons";
 import Div from "@vkontakte/vkui/dist/components/Div/Div";
-import Text from "@vkontakte/vkui/dist/components/Typography/Text/Text";
 
 const Fundraising = ({id, go, type}) => {
     const [name, setName] = useState("");
@@ -31,9 +30,9 @@ const Fundraising = ({id, go, type}) => {
     const [targetCorrect, setTargetCorrect] = useState("");
     const [descCorrect, setDescCorrect] = useState("");
 
-    useEffect(()=>{
+    useEffect(() => {
         if (image) {
-            let img = image.files[image.files.length-1].name;
+            let img = image.files[image.files.length - 1].name;
             let reader = new FileReader();
 
             reader.onload = (e) => {
@@ -47,7 +46,9 @@ const Fundraising = ({id, go, type}) => {
 
     return (
         <Panel id={id}>
-            <PanelHeader separator={false} left={<PanelHeaderBack onClick={()=>{go('mode')}}/>}>
+            <PanelHeader separator={false} left={<PanelHeaderBack onClick={() => {
+                go('mode')
+            }}/>}>
                 {type === "regular" ? "Регулярный сбор" : "Целевой сбор"}
             </PanelHeader>
             {!isValid && <Div>
@@ -55,11 +56,15 @@ const Fundraising = ({id, go, type}) => {
                     Одно или несколько полей были заполнены неверно.
                 </FormStatus>
             </Div>}
-            <input type="file" id="image-input" style={{display: "none"}} onChange={e=>{setImage(e.target)}}/>
-            <Div style={{marginTop:0}} onClick={()=>{document.getElementById("image-input").click();}}>
-                <div className={"Cover" + (imageStyle ? " CoverImgContains": "")}>
+            <input type="file" id="image-input" style={{display: "none"}} onChange={e => {
+                setImage(e.target)
+            }}/>
+            <Div style={{marginTop: 0}} onClick={() => {
+                document.getElementById("image-input").click();
+            }}>
+                <div className={"Cover" + (imageStyle ? " CoverImgContains" : "")}>
                     <img className="CoverImg" src={imageStyle}/>
-                    <div className={"CoverText" + (imageStyle ? " CoverImgContainsText": "")}>
+                    <div className={"CoverText" + (imageStyle ? " CoverImgContainsText" : "")}>
                         <Icon28PictureOutline/>Загрузить обложку
                     </div>
                 </div>
@@ -69,7 +74,9 @@ const Fundraising = ({id, go, type}) => {
                     <Input
                         placeholder="Название сбора"
                         value={name}
-                        onChange={e=>{setName(e.target.value)}}
+                        onChange={e => {
+                            setName(e.target.value)
+                        }}
                         status={nameCorrect}
                     />
                 </FormLayoutGroup>
@@ -78,7 +85,9 @@ const Fundraising = ({id, go, type}) => {
                         type="number"
                         placeholder={type === "regular" ? "Сколько нужно в месяц?" : "Сколько нужно собрать?"}
                         value={fund}
-                        onChange={e=>{setFund(e.target.value)}}
+                        onChange={e => {
+                            setFund(e.target.value)
+                        }}
                         status={fundCorrect}
                     />
                 </FormLayoutGroup>
@@ -86,7 +95,9 @@ const Fundraising = ({id, go, type}) => {
                     <Input
                         placeholder={type === "regular" ? "Например, поддержка приюта" : "Например, лечение человека"}
                         value={target}
-                        onChange={e=>{setTarget(e.target.value)}}
+                        onChange={e => {
+                            setTarget(e.target.value)
+                        }}
                         status={targetCorrect}
                     />
                 </FormLayoutGroup>
@@ -95,7 +106,9 @@ const Fundraising = ({id, go, type}) => {
                         placeholder="На что пойдут деньги и как они кому-то помогут?"
                         value={desc}
                         status={descCorrect}
-                        onChange={e=>{setDesc(e.target.value)}}/>
+                        onChange={e => {
+                            setDesc(e.target.value)
+                        }}/>
                 </FormLayoutGroup>
                 <FormLayoutGroup top="Куда получать деньги">
                     <Select>
@@ -111,30 +124,49 @@ const Fundraising = ({id, go, type}) => {
                 </FormLayoutGroup>}
             </FormLayout>
             <Div>
-                <Button onClick={()=>{
+                <Button onClick={() => {
                     let hasErrors = false;
-                    if (name.length === 0) {setNameCorrect("error"); hasErrors = true;} else {
+                    if (name.length === 0) {
+                        setNameCorrect("error");
+                        hasErrors = true;
+                    } else {
                         setNameCorrect("")
                     }
-                    if (fund.length === 0 || parseInt("fund") <= 0) {setFundCorrect("error"); hasErrors = true;} else {
+                    if (fund.length === 0 || parseInt("fund") <= 0) {
+                        setFundCorrect("error");
+                        hasErrors = true;
+                    } else {
                         setFundCorrect("")
                     }
-                    if (desc.length === 0) {setDescCorrect("error"); hasErrors = true;} else {
+                    if (desc.length === 0) {
+                        setDescCorrect("error");
+                        hasErrors = true;
+                    } else {
                         setDescCorrect("")
                     }
-                    if (target.length === 0) {setTargetCorrect("error"); hasErrors = true;} else {
+                    if (target.length === 0) {
+                        setTargetCorrect("error");
+                        hasErrors = true;
+                    } else {
                         setTargetCorrect("")
                     }
                     if (hasErrors === true) {
                         setValid(false);
-                        window.scroll(0,0);
+                        window.scroll(0, 0);
 
                     } else {
                         setValid(true);
                         if (localStorage.cache === undefined || localStorage.items === undefined) {
                             localStorage.cache = {};
                         }
-                        localStorage.cache = JSON.stringify({type, name, fund, target, desc, "image": imageStyle ? imageStyle : "none"});
+                        localStorage.cache = JSON.stringify({
+                            type,
+                            name,
+                            fund,
+                            target,
+                            desc,
+                            "image": imageStyle ? imageStyle : "none"
+                        });
                         if (type === "targeted") {
                             go("opts");
                         } else {

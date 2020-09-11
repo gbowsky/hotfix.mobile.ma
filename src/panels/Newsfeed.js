@@ -10,7 +10,7 @@ import Tabs from "@vkontakte/vkui/dist/components/Tabs/Tabs";
 const Newsfeed = ({id, go}) => {
     const [data, setData] = useState({});
 
-    useEffect(()=>{
+    useEffect(() => {
         let i = JSON.parse(localStorage.cache);
         setData(i);
     }, []);
@@ -20,30 +20,34 @@ const Newsfeed = ({id, go}) => {
         <Panel id={id}>
             <PanelHeader
                 left={<PanelHeaderButton><Icon28CameraOutline/></PanelHeaderButton>}
-                right={<PanelHeaderButton onClick={()=>{}}><Icon28Notifications/></PanelHeaderButton>}>
+                right={<PanelHeaderButton onClick={() => {
+                }}><Icon28Notifications/></PanelHeaderButton>}>
                 <Tabs>
                     <TabsItem selected>Новости</TabsItem>
                     <TabsItem>Интересное</TabsItem>
                 </Tabs>
             </PanelHeader>
-                <div className="spacing"/>
-                <Div>
-                    <div className="NewsFeed_header">
-                        <Avatar size={44} style={{marginRight: 8}}/>
-                        <div className="NewsFeed_header_texts">
-                            <div className="NewsFeed_header_title">Матвей Правосудов</div>
-                            <div className="NewsFeed_header_subtitle">только что</div>
-                        </div>
+            <div className="spacing"/>
+            <Div>
+                <div className="NewsFeed_header">
+                    <Avatar size={44} style={{marginRight: 8}}/>
+                    <div className="NewsFeed_header_texts">
+                        <div className="NewsFeed_header_title">Матвей Правосудов</div>
+                        <div className="NewsFeed_header_subtitle">только что</div>
                     </div>
-                    <div className="NewsFeed_post_text">{data.text}</div>
+                </div>
+                <div className="NewsFeed_post_text">{data.text}</div>
 
-                    <Tappable style={{borderRadius: 10}} onClick={()=>{go("fundraising_view")}}>
+                <Tappable style={{borderRadius: 10}} onClick={() => {
+                    go("fundraising_view")
+                }}>
                     <div className="Attachment">
                         <img className="Attachment_img" src={data.image ? data.image : ""}/>
                         <div className="Attachment_Infobar">
                             <div className="Attachment_titles">
                                 <div className="Attachment_title">{data.name}</div>
-                                <div className="Attachment_subtitle">Матвей Правосудов · {data.type === "targeted" ? "Закончится через n дней" : "Помощь нужна каждый месяц"}</div>
+                                <div className="Attachment_subtitle">Матвей Правосудов
+                                    · {data.type === "targeted" ? "Закончится через n дней" : "Помощь нужна каждый месяц"}</div>
                             </div>
                             <Separator wide/>
                             <div className="Attachment_status">
@@ -58,7 +62,7 @@ const Newsfeed = ({id, go}) => {
                         </div>
                     </div>
                 </Tappable>
-                </Div>
+            </Div>
 
 
         </Panel>

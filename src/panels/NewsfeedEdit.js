@@ -2,30 +2,20 @@ import React, {useEffect, useState} from 'react';
 import Panel from '@vkontakte/vkui/dist/components/Panel/Panel';
 import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader';
 
-import {
-    Button,
-    PanelHeaderBack,
-    Placeholder,
-    Banner,
-    FormLayoutGroup,
-    Input,
-    FormLayout,
-    Textarea, Select, FormStatus, Checkbox, Radio, FixedLayout, PanelHeaderClose, PanelHeaderButton, Separator, Progress
-} from "@vkontakte/vkui";
-import {Icon28PictureOutline, Icon28UploadOutline} from "@vkontakte/icons";
+import {Button, PanelHeaderBack, PanelHeaderButton, Progress, Separator} from "@vkontakte/vkui";
+import {Icon28UploadOutline} from "@vkontakte/icons";
 import Div from "@vkontakte/vkui/dist/components/Div/Div";
-import Text from "@vkontakte/vkui/dist/components/Typography/Text/Text";
 
 const NewsfeedEdit = ({id, go}) => {
     const [data, setData] = useState({});
     const [value, setText] = useState("");
 
-    useEffect(()=>{
+    useEffect(() => {
         let i = JSON.parse(localStorage.cache);
         setData(i);
     }, []);
 
-    useEffect(()=>{
+    useEffect(() => {
         console.log(data);
     }, [data])
 
@@ -38,17 +28,22 @@ const NewsfeedEdit = ({id, go}) => {
 
     return (
         <Panel id={id}>
-            <PanelHeader left={<PanelHeaderBack/>} right={<PanelHeaderButton onClick={()=>{check()}}><Icon28UploadOutline/></PanelHeaderButton>}>
+            <PanelHeader left={<PanelHeaderBack/>} right={<PanelHeaderButton onClick={() => {
+                check()
+            }}><Icon28UploadOutline/></PanelHeaderButton>}>
                 Матвей
             </PanelHeader>
-            <input type="textarea" value={value} onChange={e=>{setText(e.target.value)}} placeholder="Что у Вас нового?" className="Newsfeed_input"/>
+            <input type="textarea" value={value} onChange={e => {
+                setText(e.target.value)
+            }} placeholder="Что у Вас нового?" className="Newsfeed_input"/>
             <Div style={{padding: "10px 8px"}}>
                 <div className="Attachment">
                     <img className="Attachment_img" src={data.image ? data.image : ""}/>
                     <div className="Attachment_Infobar">
                         <div className="Attachment_titles">
                             <div className="Attachment_title">{data.name}</div>
-                            <div className="Attachment_subtitle">Матвей Правосудов · {data.type === "targeted" ? "Закончится через n дней" : "Помощь нужна каждый месяц"}</div>
+                            <div className="Attachment_subtitle">Матвей Правосудов
+                                · {data.type === "targeted" ? "Закончится через n дней" : "Помощь нужна каждый месяц"}</div>
                         </div>
                         <Separator wide/>
                         <div className="Attachment_status">

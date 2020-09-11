@@ -61,7 +61,7 @@
 
 .CoverImgContainsText {
     color: white;
-    filter: drop-shadow(0px 0px 12px rgba(0,0,0,1));
+    filter: drop-shadow(0px 0px 12px rgba(0, 0, 0, 1));
 }
 
 .Newsfeed_input {
@@ -101,6 +101,7 @@
     font-size: 15px;
     line-height: 20px;
 }
+
 .Attachment_subtitle {
     font-style: normal;
     font-weight: normal;
@@ -119,6 +120,7 @@
     padding-bottom: 10px;
     width: 100%;
 }
+
 .Attachment_progress_title {
     padding-top: 6px;
     padding-bottom: 4px;
@@ -170,6 +172,7 @@
     font-size: 24px;
     line-height: 28px;
 }
+
 .Fundraising_subtitle {
     font-style: normal;
     font-weight: 500;
@@ -177,6 +180,7 @@
     line-height: 18px;
     color: var(--text_secondary);
 }
+
 .Fundraising_type {
     font-style: normal;
     font-weight: normal;
@@ -217,7 +221,7 @@
     color: #818C99;
 }
 
-.Attachment_progress > .Progress > .Progress__in{
+.Attachment_progress > .Progress > .Progress__in {
     background: var(--button_commerce_background);
 }
 
