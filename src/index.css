@@ -1,0 +1,223 @@
+.v-center {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.Banner {
+    margin-top: 0!important;
+}
+
+.Cover {
+    height: 140px;
+    border: 1px dashed var(--accent);
+    color: var(--accent);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    /* identical to box height, or 125% */
+
+    letter-spacing: -0.32px;
+    overflow: hidden;
+}
+
+.CoverImg {
+    width: 100%;
+    min-height: 140px;
+    position: relative;
+    top: 14px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 0;
+    border-inline: 0;
+    outline: none;
+    text-decoration: none;
+}
+
+.CoverText {
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: -70px;
+}
+
+.CoverText > .Icon {
+    margin-right: 11px;
+}
+
+.CoverImgContains {
+    border: 0px;
+}
+
+.CoverImgContainsText {
+    color: white;
+    filter: drop-shadow(0px 0px 12px rgba(0,0,0,1));
+}
+
+.Newsfeed_input {
+    width: calc(100% - 12px);
+    font-size: 15px;
+    border: 0;
+    outline: none;
+    padding: 12px 10px;
+}
+
+.Newsfeed_input:focus {
+    border: 0;
+}
+
+.Attachment {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 10px 10px 10px 10px;
+}
+
+.Attachment_img {
+    height: 140px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+.Attachment_Infobar {
+    padding: 0 12px;
+}
+
+.Attachment_titles {
+    padding: 8px 0;
+}
+
+.Attachment_title {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+}
+.Attachment_subtitle {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 16px;
+    color: var(--text_secondary);
+}
+
+.Attachment_status {
+    display: flex;
+    align-items: center;
+}
+
+.Attachment_progress {
+    padding-top: 4px;
+    padding-bottom: 10px;
+    width: 100%;
+}
+.Attachment_progress_title {
+    padding-top: 6px;
+    padding-bottom: 4px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: var(--text_primary)
+}
+
+.Att_button {
+    margin-left: 14px;
+}
+
+.spacing {
+    height: 10px;
+    width: 100%;
+    background: var(--background_page);
+}
+
+.NewsFeed_header {
+    padding: 0 0 12px;
+    display: flex;
+    align-items: center;
+}
+
+.NewsFeed_header_texts {
+    margin-left: 8px;
+}
+
+.NewsFeed_header_title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.NewsFeed_header_subtitle {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    color: var(--text_secondary);
+}
+
+.Fundraising_title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+}
+.Fundraising_subtitle {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--text_secondary);
+}
+.Fundraising_type {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 16px;
+    color: var(--text_secondary);
+}
+
+.Fundraising_progress {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 24px;
+    background: var(--separator_alpha);
+    border-radius: 6px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    margin-top: 6px;
+}
+
+.Fundraising_track {
+    width: 75%;
+    height: 24px;
+    border-radius: 6px;
+    background: var(--button_commerce_background);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 12px;
+}
+
+.Fundraising_progress_end {
+    margin-left: auto;
+    margin-right: 12px;
+    color: #818C99;
+}
+
+.Attachment_progress > .Progress > .Progress__in{
+    background: var(--button_commerce_background);
+}
+
+.NewsFeed_post_text {
+    padding-top: 4px;
+    padding-bottom: 12px;
+}
