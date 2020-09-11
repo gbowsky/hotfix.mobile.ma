@@ -5,7 +5,11 @@
 }
 
 .Banner {
-    margin-top: 0!important;
+    margin-top: 0 !important;
+}
+
+.v-center:last-child {
+    margin-bottom: 0 !important;
 }
 
 .Cover {
